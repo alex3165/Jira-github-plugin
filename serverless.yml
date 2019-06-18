@@ -1,0 +1,17 @@
+service: api
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+# you can add packaging information here
+package:
+ include:
+   - index.js
+   - node_modules/**
+
+functions:
+  get-monuments:
+    handler: index.pullRequest
+    environment:
+
