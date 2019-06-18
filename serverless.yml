@@ -7,11 +7,12 @@ provider:
 # you can add packaging information here
 package:
  include:
-   - index.js
+   - lambda.js
+   - handlers.js
+   - requests.js
    - node_modules/**
 
 functions:
   get-monuments:
-    handler: index.pullRequest
+    handler: lambda.pullRequest
     environment:
-
