@@ -15,7 +15,12 @@ const { getNextTransitionId, postJiraTransition } = createClient(
 );
 
 const pullRequestHook = bodyPayload => {
-  const { action, pull_request } = JSON.parse(bodyPayload);
+  if (typeof bodyPayload === 'string') {
+    console.log('Parsing body payload since it is a string');
+    bodyPayload = JSON.parse(bodyPayload);
+  }
+
+  const { action, pull_request } = bodyPayload;
 
   if (!pull_request) {
     console.error(
@@ -23,7 +28,6 @@ const pullRequestHook = bodyPayload => {
       Object.keys(bodyPayload)
     );
 
-    // res.status(200).send();
     return Promise.resolve({
       status: 200,
       message: 'Not a PR payload'

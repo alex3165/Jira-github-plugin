@@ -3,6 +3,7 @@ service: api
 provider:
   name: aws
   runtime: nodejs8.10
+  profile: alex3165
 
 # you can add packaging information here
 package:
@@ -13,6 +14,9 @@ package:
    - node_modules/**
 
 functions:
-  get-monuments:
+  github-jira-hook:
     handler: lambda.pullRequest
     environment:
+      JIRA_DOMAIN: citysprint
+      TOKEN: z45ju2fjIgCRJRk28hgl68B1
+      USERNAME: arieux@lastmilelink.com
