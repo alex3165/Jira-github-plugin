@@ -1,4 +1,4 @@
-service: api
+service: jira-github-api
 
 provider:
   name: aws
