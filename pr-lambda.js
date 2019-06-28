@@ -16,16 +16,7 @@ module.exports.handler = async event => {
     });
   }
 
-  if (!requestBody.payload) {
-    console.error("Payload is undefined, body: " + event.body);
-
-    return Promise.resolve({
-      statusCode: 500,
-      body: "Payload not parsed"
-    });
-  }
-
-  const response = await pullRequestHook(requestBody.payload);
+  const response = await pullRequestHook(requestBody);
 
   return Promise.resolve({
     statusCode: response.status,
