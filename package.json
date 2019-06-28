@@ -4,14 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "env $(xargs < .env) node index.js"
+    "test": "jest --watch"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "dotenv": "^8.0.0",
     "jest": "^24.8.0"
   }
 }

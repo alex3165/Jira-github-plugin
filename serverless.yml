@@ -3,20 +3,32 @@ service: api
 provider:
   name: aws
   runtime: nodejs8.10
-  profile: alex3165
 
 # you can add packaging information here
 package:
- include:
-   - lambda.js
-   - handlers.js
-   - requests.js
-   - node_modules/**
+  include:
+    - lambda.js
+    - handlers.js
+    - requests.js
+    - node_modules/**
 
 functions:
-  github-jira-hook:
-    handler: lambda.pullRequest
+  pr-github-jira-hook:
+    handler: pr-lambda.handler
     environment:
-      JIRA_DOMAIN: citysprint
-      TOKEN: z45ju2fjIgCRJRk28hgl68B1
-      USERNAME: arieux@lastmilelink.com
+      JIRA_DOMAIN: ${env:JIRA_DOMAIN}
+      TOKEN: ${env:TOKEN}
+      USERNAME: ${env:USERNAME}
+      GITHUB_PR_OPEN: ${env:GITHUB_PR_OPEN}
+      GITHUB_BRANCH_OPEN: ${env:GITHUB_BRANCH_OPEN}
+      GITHUB_PR_MERGED: ${env:GITHUB_PR_MERGED}
+
+  branch-github-jira-hook:
+    handler: branch-lambda.handler
+    environment:
+      JIRA_DOMAIN: ${env:JIRA_DOMAIN}
+      TOKEN: ${env:TOKEN}
+      USERNAME: ${env:USERNAME}
+      GITHUB_PR_OPEN: ${env:GITHUB_PR_OPEN}
+      GITHUB_BRANCH_OPEN: ${env:GITHUB_BRANCH_OPEN}
+      GITHUB_PR_MERGED: ${env:GITHUB_PR_MERGED}

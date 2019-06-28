@@ -1,3 +1,3 @@
 TODO:
 
-- Write serverless.yml config file to deploy to lambda
+- Test full flow with dummy jira account

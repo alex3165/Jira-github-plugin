@@ -1,23 +1,23 @@
-const { pullRequestHook } = require('./handlers');
-const qs = require('qs');
+const { branchRequestHook } = require("./branch-handler");
+const qs = require("qs");
 
-module.exports.pullRequest = async event => {
-  if (typeof event.body !== 'string') {
+module.exports.handler = async event => {
+  if (typeof event.body !== "string") {
     console.error(`Body is not a string ${typeof event.body}`);
   }
 
   const requestBody = qs.parse(event.body);
 
   if (!requestBody.payload) {
-    console.error('Payload is undefined, body: ' + event.body);
+    console.error("Payload is undefined, body: " + event.body);
 
     return Promise.resolve({
       statusCode: 500,
-      body: 'Payload not parsed'
+      body: "Payload not parsed"
     });
   }
 
-  const response = await pullRequestHook(requestBody.payload);
+  const response = await branchRequestHook(requestBody.payload);
 
   return Promise.resolve({
     statusCode: response.status,
