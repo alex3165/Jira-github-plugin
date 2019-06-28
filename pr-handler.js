@@ -5,6 +5,7 @@ const { clientSingleton } = require("./client");
 const { GITHUB_PR_OPEN, GITHUB_PR_MERGED } = process.env;
 
 const pullRequestHook = bodyPayload => {
+  // Fallback parsing
   if (typeof bodyPayload === "string") {
     console.log("Parsing body payload since it is a string");
     bodyPayload = JSON.parse(bodyPayload);

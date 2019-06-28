@@ -1,0 +1,6 @@
+repos:
+  - repo: https://github.com/milin/giticket
+    rev: "868d937"
+    hooks:
+      - id: giticket
+        args: ["--format=[{ticket}] {commit_msg}"] # Optional

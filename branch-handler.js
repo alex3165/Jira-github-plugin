@@ -4,6 +4,7 @@ const { clientSingleton } = require("./client");
 const { GITHUB_BRANCH_OPEN } = process.env;
 
 const branchRequestHook = bodyPayload => {
+  // Fallback parsing
   if (typeof bodyPayload === "string") {
     console.log("Parsing body payload since it is a string");
     bodyPayload = JSON.parse(bodyPayload);

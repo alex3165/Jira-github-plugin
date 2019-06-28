@@ -4,12 +4,17 @@ provider:
   name: aws
   runtime: nodejs8.10
 
+plugins:
+  - serverless-dotenv-plugin
+
 # you can add packaging information here
 package:
   include:
-    - lambda.js
-    - handlers.js
-    - requests.js
+    - pr-lambda.js
+    - branch-lambda.js
+    - pr-handler.js
+    - branch-handler.js
+    - client.js
     - node_modules/**
 
 functions:
