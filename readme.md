@@ -24,8 +24,3 @@ repos:
       - id: giticket
         args: ["--format=[{ticket}] {commit_msg}"] # Optional
 ```
-
-URLS:
-
-https://taqs07g694.execute-api.us-east-1.amazonaws.com/prod/api-dev-pr-github-jira-hook
-https://taqs07g694.execute-api.us-east-1.amazonaws.com/prod/api-dev-branch-github-jira-hook
