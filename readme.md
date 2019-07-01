@@ -1,5 +1,7 @@
 # Github drive Jira
 
+![example gif](example.gif "example gif")
+
 This project contain 2 AWS lambda which listen to Github webhook and update Jira given the following actions mapping:
 
 - Create branch (branch name should have Jira ticket number) will update Jira task to "In Progress" status
